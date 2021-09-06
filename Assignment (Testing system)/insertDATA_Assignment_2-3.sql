@@ -60,13 +60,13 @@ SELECT * FROM `Group`;
 -- thêm mới dữ liệu vào table GroupAccount
 INSERT INTO GroupAccount(GroupID, 	AccountID)
 VALUES					(1, 			1),
-						(2, 			2),
+						(1, 			2),
 						(3, 			3),
 						(9, 			4),
-						(6, 			5),
+						(1, 			5),
                         (8, 			6),
-                        (5, 			7),
-                        (4, 			8),
+                        (1, 			7),
+                        (1, 			8),
                         (1, 			9),
                         (3, 			10);
 -- lấy tất cả dữ liệu từ GroupAccount
