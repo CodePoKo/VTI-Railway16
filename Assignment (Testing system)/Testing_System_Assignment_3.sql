@@ -11,8 +11,8 @@ FROM Department
 WHERE DepartmentName = 'Sale';
 
 
--- lấy ra thông tin account có full name dài nhất (question 4)
-SELECT *
+-- lấy ra thông tin account có full name dài nhất(dùng sub query) (question 4)
+SELECT *, LENGTH(FullName)
 FROM `Account`
 WHERE LENGTH(Fullname) = (SELECT MAX(LENGTH(Fullname)) FROM `Account`)
 ORDER BY Fullname DESC;
@@ -21,7 +21,7 @@ ORDER BY Fullname DESC;
 -- lấy ra thông tin account có full name dài nhất và thuộc phòng ban có id = 3 (question 5)
 SELECT *
 FROM	`Account`
-WHERE LENGTH(Fullname) = (SELECT MAX(LENGTH(Fullname)) FROM `Account` ) && DepartmentID = 3
+WHERE LENGTH(Fullname) = (SELECT MAX(LENGTH(Fullname)) FROM `Account` WHERE DepartmentID = 3) && DepartmentID = 3
 ORDER BY Fullname DESC;
 
 
@@ -58,15 +58,19 @@ WHERE DepartmentID = 2;
 
 
 -- lấy ra nhân viên có tên bắt đầu bằng chữ "D" và kết thúc bằng chữ "o" (question 11)
-
+-- keyword: https://www.w3schools.com/sql/func_mysql_substring_index.asp
+SELECT *, SUBSTRING_INDEX(FullName, ' ', -1) AS Ten
+FROM  `Account`
+WHERE (SUBSTRING_INDEX(FullName, ' ', -1)) LIKE 'D%o';
 
 
 -- xóa tất cả các exam được tạo trước ngày 20/12/2019 (question 12)
-ALTER TABLE Exam DROP CONSTRAINT fk_cat_ID;
-ALTER TABLE Exam DROP CONSTRAINT fk_cre_ID;
+SET foreign_key_checks = 0;
+
 DELETE
 FROM Exam
 WHERE CreateDate < '2019-12-20';
+-- SET foreign_key_checks = 1;
 
 SELECT * 
 FROM Exam
@@ -74,16 +78,23 @@ WHERE CreateDate < '2019-12-20';
 
 
 -- xóa tất cả các question có nội dung bắt đầu bằng từ "câu hỏi" (question 13)
+SET foreign_key_checks = 0;
+DELETE 
+FROM question
+WHERE (SUBSTRING_INDEX(Content,' ',2)) ='Câu hỏi';
+
+SELECT Content
+FROM question;
 
 
-
--- update thông tin của account có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn (question 14)
+-- update thông tin của `account` có id = 5 thành tên "Nguyễn Bá Lộc" và email thành loc.nguyenba@vti.com.vn (question 14)
 UPDATE  `Account`
 SET		Fullname = 'Nguyễn Bá Lộc',
 		Email 	=	'loc.nguyenba@vti.com.vn'
 WHERE 	AccountID = 5;
 
 SELECT * FROM `Account`;
+
 
 -- update account có id = 5 sẽ thuộc group có id = 4 (question 15)
 UPDATE GroupAccount

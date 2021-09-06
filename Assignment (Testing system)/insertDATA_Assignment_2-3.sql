@@ -27,17 +27,17 @@ SELECT * FROM `Position`;
 
 -- thêm mới dữ liệu vào table Account
 INSERT INTO `Account`	(		Email,					Username, 		FullName, 		DepartmentID, 		PositionID)
-VALUES					('lms1.vti.edu.vn@gmail.com',	'username1',	'fullname1',			1,				1),
-						('lms2.vti.edu.vn@gmail.com',	'username2',	'fullname2',			4,				2),
-						('lms3.vti.edu.vn@gmail.com',	'username3',	'fullname3',			5,				3),
-						('lms4.vti.edu.vn@gmail.com',	'username4',	'fullname4',			3,				4),
-                        ('lms5.vti.edu.vn@gmail.com',	'username5',	'fullname5',			8,				3),
-                        ('lms6.vti.edu.vn@gmail.com',	'username6',	'fullname6',			1,				3),
-                        ('lms7.vti.edu.vn@gmail.com',	'username7',	'fullname7',			3,				2),
-                        ('lms8.vti.edu.vn@gmail.com',	'username8',	'fullname8',			4,				1),
-                        ('lms9.vti.edu.vn@gmail.com',	'username9',	'fullname9',			6,				1),
-                        ('lms10.vti.edu.vn@gmail.com',	'username10',	'fullname10',			3,				4),
-                        ('lms11.vti.edu.vn@gmail.com',	'username11',	'fullname11',			1,				3);
+VALUES					('lms1.vti.edu.vn@gmail.com',	'username1',	'fullname1',			null,				1),
+						('lms2.vti.edu.vn@gmail.com',	'username2',	'fullname2',			null,				2),
+						('lms3.vti.edu.vn@gmail.com',	'username3',	'fullname3',			null,				3),
+						('lms4.vti.edu.vn@gmail.com',	'username4',	'fullname4',			null,				4),
+                        ('lms5.vti.edu.vn@gmail.com',	'username5',	'fullname5',			null,				3),
+                        ('lms6.vti.edu.vn@gmail.com',	'username6',	'fullname6',			null,				3),
+                        ('lms7.vti.edu.vn@gmail.com',	'username7',	'fullname7',			3,					2),
+                        ('lms8.vti.edu.vn@gmail.com',	'username8',	'fullname8',			4,					1),
+                        ('lms9.vti.edu.vn@gmail.com',	'username9',	'D fullname9 o',		6,					1),
+                        ('lms10.vti.edu.vn@gmail.com',	'username10',	'fullname10',			3,					4),
+                        ('lms11.vti.edu.vn@gmail.com',	'username11',	'fullname11',			2,					3);
 -- lấy tất cả dữ liệu từ Account
 SELECT * FROM `Account`;
 
@@ -96,14 +96,14 @@ SELECT * FROM CategoryQuestion;
 
 -- thêm mới dữ liệu vào table Question
 INSERT INTO Question(Content,				CategoryID,			TypeID, 		CreatorID)
-VALUES				('Câu hỏi Java',			7,					1,					5),
+VALUES				('Hỏi Java',				7,					1,					5),
 					('Câu hỏi .NET',			4,					2,					8),
-					('Câu hỏi SQL',				10,					2,					4),
+					('Câu hỏi SQL',				10,					1,					4),
 					('Câu hỏi Postman',			6,					2,					3),
 					('Câu hỏi Ruby',			8,					1,					2),
-                    ('Câu hỏi ASP.NET',			5,					2,					2),
+                    ('Hỏi ASP.NET',				7,					2,					2),
                     ('Câu hỏi C++',				3,					2,					4),
-                    ('Câu hỏi NodeJS',			2,					1,					6),
+                    ('Câu hỏi NodeJS',			4,					1,					6),
                     ('Câu hỏi ReactJS',			9,					1,					8),
                     ('Câu hỏi PHP',				1,					1,					9);
 -- lấy tất cả dữ liệu từ Question
@@ -116,11 +116,11 @@ VALUES				('Dap an: Java',			1,			TRUE),
 					('Dap an: SQL',				3,			FALSE),
 					('Dap an: Postman',			4,			TRUE),
 					('Dap an: Ruby',			5,			FALSE),
-                    ('Dap an: ASP.NET',			5,			FALSE),
-                    ('Dap an: C++',				2,			FALSE),
-                    ('Dap an: NodeJS',			9,			FALSE),
-                    ('Dap an: ReactJS',			7,			FALSE),
-                    ('Dap an: PHP',				6,			FALSE);
+                    ('Dap an: ASP.NET',			10,			FALSE),
+                    ('Dap an: C++',				7,			FALSE),
+                    ('Dap an: NodeJS',			10,			FALSE),
+                    ('Dap an: ReactJS',			9,			FALSE),
+                    ('Dap an: PHP',				10,			FALSE);
 -- lấy tất cả dữ liệu từ Answer
 SELECT * FROM Answer;
 
@@ -141,14 +141,14 @@ SELECT * FROM Exam;
 
 -- thêm mới dữ liệu vào table ExamQuestion
 INSERT INTO ExamQuestion(ExamID, QuestionID)
-VALUE					(1,  		1),
-						(2, 		5),
-						(3, 		9),
-                        (4,  		2),
+VALUE					(1,  		5),
+						(2, 		10),
+						(3, 		5),
+                        (4,  		5),
                         (5,  		1),
-                        (6,  		7),
+                        (6,  		10),
                         (7,  		4),
-                        (8,  		8),
+                        (8,  		10),
                         (9,  		6),
                         (10,  		6);
 -- lấy tất cả dữ liệu từ ExamQuestion
