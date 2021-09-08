@@ -1,9 +1,10 @@
 -- subqueries với toán tử IN, ALL, ANY/SOME
 SELECT *
 FROM `Account`
-WHERE AccountID  > SOME(SELECT AccountID
+WHERE AccountID  > ANY(SELECT AccountID
 						FROM `Account`
 						WHERE AccountID = 2 || AccountID = 3 || AccountID = 4);
+                        
                         
 -- subqueries với toán tử EXIST: kiểm tra sự tồn tại của bản ghi trong subqueries
 SELECT *

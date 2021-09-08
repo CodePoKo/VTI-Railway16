@@ -2,19 +2,18 @@
 USE TestingManagement;
 -- thêm mới dữ liệu vào table department
 INSERT INTO Department(DepartmentName)
-VALUES						(N'Marketing' ),
-							(N'Sale'),
-							(N'Bảo vệ'),
-							(N'Nhân sự'),
-							(N'Kỹ thuật'),
-							(N'Tài chính'),
-							(N'Phó giám đốc'),
-							(N'Giám đốc'),
-							(N'Thư kí'),
-							(N'No person'),
-							(N'Bán hàng');
--- lấy tất cả dữ liệu từ department
-SELECT * FROM Department;
+VALUES					(N'Marketing'),
+						(N'Sale'),
+						(N'Bảo vệ'),
+						(N'Nhân sự'),
+						(N'Kỹ thuật'),
+						(N'Tài chính'),
+						(N'Phó giám đốc'),
+						(N'Giám đốc'),
+						(N'Thư kí'),
+						(N'No person'),
+						(N'Bán hàng');
+
 
 -- thêm mới dữ liệu vào table position
 INSERT INTO `Position`(PositionName)
@@ -22,8 +21,6 @@ VALUES					('Dev'),
 						('Test'),
 						('Scrum Master'),
 						('PM');
--- lấy tất cả dữ liệu từ position
-SELECT * FROM `Position`;
 
 -- thêm mới dữ liệu vào table Account
 INSERT INTO `Account`	(		Email,					Username, 		FullName, 		DepartmentID, 		PositionID)
@@ -38,8 +35,7 @@ VALUES					('lms1.vti.edu.vn@gmail.com',	'username1',	'fullname1',			null,				1)
                         ('lms9.vti.edu.vn@gmail.com',	'username9',	'D fullname9 o',		6,					1),
                         ('lms10.vti.edu.vn@gmail.com',	'username10',	'Nguyễn fullname10',	3,					4),
                         ('lms11.vti.edu.vn@gmail.com',	'username11',	'fullname11',			2,					3);
--- lấy tất cả dữ liệu từ Account
-SELECT * FROM `Account`;
+
 
 
 -- thêm mới dữ liệu vào table Group
@@ -54,8 +50,7 @@ VALUES				(N'Nhóm 1', 		1, 			'2021-8-30'),
                     (N'Nhóm 8', 		4, 			'2019-11-01'),
                     (N'Nhóm 9', 		3, 			'2021-02-02'),
                     (N'Nhóm 10', 		8, 			'2021-05-23');
--- lấy tất cả dữ liệu từ Group
-SELECT * FROM `Group`;
+
 
 -- thêm mới dữ liệu vào table GroupAccount
 INSERT INTO GroupAccount(GroupID, 	AccountID)
@@ -69,15 +64,13 @@ VALUES					(1, 			1),
                         (8, 			3),
                         (9, 			9),
                         (10, 			3);
--- lấy tất cả dữ liệu từ GroupAccount
-SELECT * FROM GroupAccount;
+
 
 -- thêm mới dữ liệu vào table TypeQuestion
 INSERT INTO TypeQuestion(TypeName)
 VALUES					('Essay'),
 						('Multiple-Choice');
--- lấy tất cả dữ liệu từ TypeQuestion
-SELECT * FROM TypeQuestion;
+
 
 -- thêm mới dữ liệu vào table CategoryQuestion
 INSERT INTO CategoryQuestion(CategoryName)
@@ -91,8 +84,7 @@ VALUES						('Java'),
                             ('NodeJS'),
                             ('ReactJS'),
                             ('PHP');
--- lấy tất cả dữ liệu từ CategoryQuestion
-SELECT * FROM CategoryQuestion;
+
 
 -- thêm mới dữ liệu vào table Question
 INSERT INTO Question(Content,				CategoryID,			TypeID, 		CreatorID)
@@ -107,8 +99,6 @@ VALUES				('Hỏi Java',				7,					1,					5),
                     ('Câu hỏi NodeJS',			4,					1,					6),
                     ('Câu hỏi ReactJS',			9,					1,					8),
                     ('Câu hỏi PHP',				1,					1,					9);
--- lấy tất cả dữ liệu từ Question
-SELECT * FROM Question;
 
 -- thêm mới dữ liệu vào table Answer
 INSERT INTO Answer	(Content,				QuestionID,		isCorrect)
@@ -122,8 +112,7 @@ VALUES				('Dap an: Java',			1,			TRUE),
                     ('Dap an: NodeJS',			10,			FALSE),
                     ('Dap an: ReactJS',			9,			FALSE),
                     ('Dap an: PHP',				10,			FALSE);
--- lấy tất cả dữ liệu từ Answer
-SELECT * FROM Answer;
+
 
 -- thêm mới dữ liệu vào table Exam
 INSERT INTO Exam	(`Code`,	Title,			CategoryID, 	Duration, 		CreatorID, 			CreateDate)
@@ -137,8 +126,7 @@ VALUES				('De1',		N'Đề Java',			5,				90,				5,				'2010-09-12'),
                     ('De8',		N'Đề NodeJS',		1,				150,			3,				'2021-06-28'),
                     ('De9',		N'Đề ReactJS',		3,				60,				10,				'2021-07-05'),
                     ('De10',	N'Đề PHP',			4,				30,				7,				'2020-05-19');
--- lấy tất cả dữ liệu từ Exam
-SELECT * FROM Exam;
+
 
 -- thêm mới dữ liệu vào table ExamQuestion
 INSERT INTO ExamQuestion(ExamID, QuestionID)
@@ -152,6 +140,5 @@ VALUE					(1,  		5),
                         (8,  		10),
                         (9,  		6),
                         (10,  		6);
--- lấy tất cả dữ liệu từ ExamQuestion
-SELECT * FROM ExamQuestion;
+
 
