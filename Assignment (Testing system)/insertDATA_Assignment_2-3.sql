@@ -30,13 +30,13 @@ INSERT INTO `Account`	(		Email,					Username, 		FullName, 		DepartmentID, 		Posi
 VALUES					('lms1.vti.edu.vn@gmail.com',	'username1',	'fullname1',			null,				1),
 						('lms2.vti.edu.vn@gmail.com',	'username2',	'fullname2',			null,				2),
 						('lms3.vti.edu.vn@gmail.com',	'username3',	'fullname3',			null,				3),
-						('lms4.vti.edu.vn@gmail.com',	'username4',	'fullname4',			null,				4),
+						('lms4.vti.edu.vn@gmail.com',	'username4',	'Nguyễn fullname4',		null,				4),
                         ('lms5.vti.edu.vn@gmail.com',	'username5',	'fullname5',			null,				3),
                         ('lms6.vti.edu.vn@gmail.com',	'username6',	'fullname6',			null,				3),
                         ('lms7.vti.edu.vn@gmail.com',	'username7',	'fullname7',			3,					2),
-                        ('lms8.vti.edu.vn@gmail.com',	'username8',	'fullname8',			4,					1),
+                        ('lms8.vti.edu.vn@gmail.com',	'username8',	'Nguyễn fullname8',		4,					1),
                         ('lms9.vti.edu.vn@gmail.com',	'username9',	'D fullname9 o',		6,					1),
-                        ('lms10.vti.edu.vn@gmail.com',	'username10',	'fullname10',			3,					4),
+                        ('lms10.vti.edu.vn@gmail.com',	'username10',	'Nguyễn fullname10',	3,					4),
                         ('lms11.vti.edu.vn@gmail.com',	'username11',	'fullname11',			2,					3);
 -- lấy tất cả dữ liệu từ Account
 SELECT * FROM `Account`;
@@ -60,15 +60,15 @@ SELECT * FROM `Group`;
 -- thêm mới dữ liệu vào table GroupAccount
 INSERT INTO GroupAccount(GroupID, 	AccountID)
 VALUES					(1, 			1),
-						(1, 			2),
-						(3, 			3),
-						(9, 			4),
-						(1, 			5),
-                        (8, 			6),
-                        (1, 			7),
-                        (1, 			8),
-                        (1, 			9),
-                        (3, 			10);
+						(2, 			2),
+						(3, 			1),
+						(4, 			1),
+						(5, 			5),
+                        (6, 			3),
+                        (7, 			7),
+                        (8, 			3),
+                        (9, 			9),
+                        (10, 			3);
 -- lấy tất cả dữ liệu từ GroupAccount
 SELECT * FROM GroupAccount;
 
@@ -99,10 +99,11 @@ INSERT INTO Question(Content,				CategoryID,			TypeID, 		CreatorID)
 VALUES				('Hỏi Java',				7,					1,					5),
 					('Câu hỏi .NET',			4,					2,					8),
 					('Câu hỏi SQL',				10,					1,					4),
-					('Câu hỏi Postman',			6,					2,					3),
+					('Câu hỏi Postmannnnn
+						nnnnnnnnnnn',			6,					2,					3),
 					('Câu hỏi Ruby',			8,					1,					2),
                     ('Hỏi ASP.NET',				7,					2,					2),
-                    ('Câu hỏi C++',				3,					2,					4),
+                    ('Câu hỏi C++',				3,					2,					7),
                     ('Câu hỏi NodeJS',			4,					1,					6),
                     ('Câu hỏi ReactJS',			9,					1,					8),
                     ('Câu hỏi PHP',				1,					1,					9);

@@ -29,9 +29,9 @@ WHERE Positionname = 'Dev';
 
 
 -- Viết lệnh để lấy ra phòng ban lớn hơn 3 nhân viên (question 4)
-SELECT D.DepartmentName, A.DepartmentID, COUNT(A.DepartmentID) AS soluong_nhanvien
+SELECT *, COUNT(A.DepartmentID) AS soluong_nhanvien
 FROM `Account` A
-INNER JOIN Department D ON A.DepartmentID = D.DepartmentID
+INNER JOIN Department D USING(DepartmentID)
 GROUP BY A.DepartmentID
 HAVING soluong_nhanvien > 3;
 
@@ -64,52 +64,70 @@ HAVING COUNT(QuestionID) = ( SELECT MAX(MyCount)
 
 
 -- thống kê mỗi Category Question được sử dụng trong bao nhiêu Question(question 6)
-SELECT CategoryID, COUNT(CategoryID)
-FROM Question
+SELECT CategoryID, CategoryName, COUNT(QuestionID)
+FROM CategoryQuestion
+INNER JOIN Question USING(CategoryID)
 GROUP BY CategoryID
-ORDER BY COUNT(CategoryID);
+ORDER BY COUNT(QuestionID);
+
 
 
 -- thống kê mỗi Question được sử dụng trong bao nhiêu Exam (question 7)
-SELECT ExamID, COUNT(ExamID)
+SELECT QuestionID, COUNT(ExamID)
 FROM ExamQuestion
-GROUP BY ExamID
-ORDER BY COUNT(ExamID);
+INNER JOIN Exam USING(ExamID)
+GROUP BY QuestionID;
 
 
 -- Lấy ra Question có nhiều câu trả lời nhất (question 8)
-SELECT QuestionID, COUNT(AnswerID) AS soluong_cautl
-FROM Answer
+SELECT QuestionID , COUNT(AnswerID)
+FROM Question
+INNER JOIN Answer  USING(QuestionID)
 GROUP BY QuestionID
-ORDER BY soluong_cautl DESC
-LIMIT 1;
+HAVING COUNT(AnswerID) = ( 	SELECT MAX(myAnwser) FROM 
+							( SELECT COUNT(AnswerID) AS myAnwser
+                            FROM Answer
+                            GROUP BY QuestionID) AS maxAnswer);
+                            
 
 
 -- Thống kê số lượng account trong mỗi group (question 9)
-SELECT AccountID, GroupID, COUNT(AccountID)
-FROM GroupAccount
+SELECT GroupID, GroupName, COUNT(AccountID)
+FROM `Group`
+INNER JOIN GroupAccount USING(GroupID)
 GROUP BY GroupID;
 
 
 
 -- Tìm chức vụ có ít người nhất (question 10)
-SELECT p.PositionName, p.PositionID, COUNT(a.PositionID)
-FROM `Account` a
-INNER JOIN `Position` p USING(PositionID)
-GROUP BY a.PositionID 
-ORDER BY COUNT(a.PositionID) ASC
+SELECT PositionName, PositionID, COUNT(AccountID)
+FROM `Account` 
+INNER JOIN `Position`  USING(PositionID)
+GROUP BY PositionID 
+ORDER BY COUNT(AccountID) ASC
 LIMIT 2;
 
 
+SELECT PositionName, PositionID, COUNT(AccountID)
+FROM `Position`
+INNER JOIN `Account` USING(PositionID)
+GROUP BY PositionID
+HAVING COUNT(AccountID) = (	SELECT MIN(myAccount)
+							FROM (SELECT COUNT(AccountID) AS myAccount
+                            FROM `Account`
+                            GROUP BY PositionID) AS minAccount);
+                            
+                 
 
--- Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM (question 11)
-SELECT DepartmentID, PositionID, COUNT(PositionID)
+-- Thống kê mỗi phòng ban có bao nhiêu nhân viên là: dev, test, scrum master, PM (question 11)
+SELECT DepartmentName, DepartmentID, PositionName, COUNT(PositionID)
 FROM `Account`
-GROUP BY DepartmentID;
+INNER JOIN `Department` USING(DepartmentID)
+INNER JOIN `Position` USING(PositionID)
+GROUP BY DepartmentID, PositionID;
 
 
 
--- CROSS JOIN
 -- Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì (question 12)
 SELECT q.*, a1.Fullname, a2.Content
 FROM Question q
@@ -120,9 +138,11 @@ ORDER BY QuestionID;
 
 
 -- Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm (question 13)
-SELECT TypeID AS loai_cauhoi, COUNT(TypeID) AS soluong_cauhoi
-FROM Question
-GROUP BY loai_cauhoi;
+SELECT TypeID, TypeName, COUNT(QuestionID)
+FROM `TypeQuestion`
+INNER JOIN Question USING(TypeID)
+GROUP BY TypeID;
+  
 
 
 -- Lấy ra group không có account nào (question 14) (LEFT EXCLUDING JOIN)
@@ -131,12 +151,14 @@ FROM `Group` g
 LEFT JOIN `GroupAccount` ga USING(GroupID)
 WHERE  ga.AccountID IS NULL;
 
+ 
 
 -- Lấy ra question không có answer nào (question 16)
 SELECT q.QuestionID, q.Content, a.AnswerID
 FROM Question q
 LEFT JOIN Answer a USING(QuestionID)
 WHERE a.AnswerID IS NULL;
+
 
 
 /*Question 17:
