@@ -1,0 +1,21 @@
+label {
+    display: block;
+}
+input {
+    margin-bottom: 15px;
+    border:2px solid #dbdbdb;
+    outline: none;
+}
+input[type="file"] {
+    border: none;
+}
+.sao {
+    color: red;
+}
+#select {
+    margin-bottom: 15px;
+}
+
+table {
+    margin-bottom: 20px;
+}

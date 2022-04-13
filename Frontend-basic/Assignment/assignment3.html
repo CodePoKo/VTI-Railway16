@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">Click button</p>
+    <button onclick="myFunction()">Try it</button>
+    <br>
+    <br>
+
+
+    <!-- Ex8.Question1 -->
+    <div>
+        <h2>Ex8.Question1</h2>
+        Number1:
+        <input type="text" class="number1">
+        Number2:
+        <input type="text" class="number2">
+        <br>
+        <br>
+        <button onclick="tong()" class="cong">Cộng</button>
+        <button onclick="hieu()" class="tru">Trừ</button>
+        <button onclick="tich()" class="nhan">Nhân</button>
+        <button onclick="thuong()" class="chia">Chia</button>
+        <button onclick="chiadu()" class="chiadu">Chia lấy dư</button>
+        <br>
+        <br>
+        Kết quả:
+        <input type="text" class="result" readonly>
+    </div>
+    <br><br>
+
+
+    <!-- Ex8.Question2 -->
+    <div>
+        <h2>Ex8.Question2</h2>
+        Nhập độ dài chiều dài thứ nhất: <input type="text" class="dai1">
+        <br><br>
+        Nhập độ dài chiều dài thứ hai: <input type="text" class="dai2">
+        <br><br>
+        <button class="calc">Tính Toán</button>
+        <br><br>
+        Chu vi là: <input class= "chuvi" type="text">
+        Diện tích là: <input class= "dientich" type="text">
+    </div>
+    <br><br>
+
+
+    <!-- Ex8.Question3 -->
+    <div>
+        <h2>Ex8.Question3</h2>
+        <h3>Giải phương trình bậc 2: ax<sup>2</sup> + bx + c = 0</h3>
+        Nhập a: <input type="number" class="soA" >
+        <br><br>
+        Nhập b: <input type="number" class="soB" >
+        <br><br>
+        Nhập c: <input type="number" class="soC" >
+        <br><br>
+        <button class="giaiPT">Giải phương trình</button>
+        <br><br>
+        Kết quả: <input class="ketquaPT">
+    </div>
+    <br><br>
+
+
+    <!-- Ex8.Question4 -->
+    <h2>Ex8.Question4</h2>
+    Number1:
+        <input type="text" class="so1">
+        Number2:
+        <input type="text" class="so2">
+        <select name="" id="selectNum">
+            <option value="add">Cộng</option>
+            <option value="sub">Trừ</option>
+            <option value="multipy">Nhân</option>
+            <option value="divide">Chia</option>
+            <option value="surplus">Chia dư</option>
+        </select>
+        <br><br>
+        <button class="run">Run</button>
+        <br><br>
+        Kết quả:
+        <input type="text" class="ketqua" readonly>
+
+
+    <!-- Ex8.Question6 -->
+    <h2>Form khảo sát thông tin cá nhân</h2>
+    <table border="1">
+        <tr>
+            <th>Họ Tên:  </th>
+            <td><input id="name" type="text"></td>
+        </tr>
+        <tr>
+            <th>Số điện thoại:  </th>
+            <td><input id="phonenumber" type="text"></td>
+        </tr>
+        <tr>
+            <th>Giới tính:  </th>  
+            <td colspan="2">
+                    <input id="gender1" type="radio" value="Nữ" name="gender">Nam
+                    <input id="gender2" type="radio" value="Nam" name="gender">Nữ
+            </td>
+        </tr>
+        <tr>
+            <th>Sở thích:  </th>
+            <td>
+                <input id="sothich1" type="checkbox" name="sothich" value="Nghe nhạc" >Nghe nhạc <br>
+                <input id="sothich2" type="checkbox" name="sothich" value="Bóng đá" >Bóng đá <br>
+                <input id="sothich3" type="checkbox" name="sothich" value="Du lịch" >Du lịch <br>
+                <input id="sothich4" type="checkbox" name="sothich" value="Đọc sách">Đọc sách <br>
+            </td>
+        </tr>  
+    </table>
+    <input type="submit" id="hienthi" value="hiển thị" style="margin:10px 100px;" onclick="hienthi()">
+
+    <!-- Ex8.Question7 -->
+
+    <script src="./assginment3.js"></script>
+</body>
+</html>
